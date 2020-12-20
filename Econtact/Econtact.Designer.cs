@@ -47,11 +47,11 @@ namespace Econtact
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvContactList = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.txtboxSearch = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContactList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +83,7 @@ namespace Econtact
             this.txtboxContactID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtboxContactID.Location = new System.Drawing.Point(183, 77);
             this.txtboxContactID.Name = "txtboxContactID";
+            this.txtboxContactID.ReadOnly = true;
             this.txtboxContactID.Size = new System.Drawing.Size(194, 26);
             this.txtboxContactID.TabIndex = 2;
             // 
@@ -198,6 +199,7 @@ namespace Econtact
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -210,6 +212,7 @@ namespace Econtact
             this.btnAdd.TabIndex = 16;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnClear
             // 
@@ -222,6 +225,7 @@ namespace Econtact
             this.btnClear.TabIndex = 17;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
@@ -234,14 +238,16 @@ namespace Econtact
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // dataGridView1
+            // dgvContactList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(424, 122);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(415, 274);
-            this.dataGridView1.TabIndex = 19;
+            this.dgvContactList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContactList.Location = new System.Drawing.Point(424, 122);
+            this.dgvContactList.Name = "dgvContactList";
+            this.dgvContactList.Size = new System.Drawing.Size(415, 274);
+            this.dgvContactList.TabIndex = 19;
+            this.dgvContactList.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContactList_RowHeaderMouseClick);
             // 
             // label2
             // 
@@ -272,6 +278,7 @@ namespace Econtact
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Econtact
             // 
@@ -281,7 +288,7 @@ namespace Econtact
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtboxSearch);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvContactList);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnAdd);
@@ -302,7 +309,8 @@ namespace Econtact
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Econtact";
             this.Text = "Econtact";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Econtact_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContactList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -328,7 +336,7 @@ namespace Econtact
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvContactList;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtboxSearch;
         private System.Windows.Forms.PictureBox pictureBox1;
