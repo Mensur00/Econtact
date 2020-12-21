@@ -124,7 +124,7 @@ namespace Econtact
         {
             c.ContactID = Convert.ToInt32(txtboxContactID.Text);
             bool success = c.Delete(c);
-            if (success = true)
+            if (success == true)
             {
                 MessageBox.Show("Contact successfully deleted.");
                 //Load data on Data Gridview
